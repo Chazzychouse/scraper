@@ -13,7 +13,6 @@ class WebCrawler:
         self.scraper = scraper
         self.extractor = extractor
         
-        # Crawl state
         self.visited_urls: Set[str] = set()
         self.to_visit: deque = deque()
         self.collected_urls: List[str] = []
@@ -164,6 +163,9 @@ class WebCrawler:
     
     def get_urls_by_depth(self, target_depth: int) -> List[str]:
         return [url for url, depth in self.to_visit if depth == target_depth]
+    
+    def get_collected_data(self) -> List[Any]:
+        return self.collected_data
     
     def _reset(self):
         self.visited_urls.clear()

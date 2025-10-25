@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "web-scraper-utility"
 version = "1.0.0"
 description = "A web scraper utility using BeautifulSoup"
-authors = [{name = "Your Name"}]
+authors = [{ name = "Chazzychouse" }]
 requires-python = ">=3.8"
 dependencies = [
     "beautifulsoup4==4.14.2",
@@ -25,6 +25,9 @@ dev = [
     "pytest-mock==3.15.1",
     "requests-mock==1.12.1",
 ]
+
+[project.scripts]
+scraper-api = "scraper.web_api.main:run_api"
 
 [tool.setuptools.packages.find]
 include = ["scraper*"]
@@ -48,4 +51,3 @@ addopts = [
     "--cov-report=html:.artifacts/htmlcov",
     "--cov-report=term-missing",
 ]
-
