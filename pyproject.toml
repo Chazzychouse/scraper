@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "web-scraper-utility"
+version = "1.0.0"
+description = "A web scraper utility using BeautifulSoup"
+authors = [{name = "Your Name"}]
+requires-python = ">=3.8"
+dependencies = [
+    "beautifulsoup4==4.14.2",
+    "requests==2.32.5",
+    "lxml==6.0.2",
+    "selenium==4.38.0",
+    "pandas==2.3.3",
+    "numpy==2.3.4",
+    "python-dotenv==1.1.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest==8.4.2",
+    "pytest-cov==7.0.0",
+    "pytest-mock==3.15.1",
+    "requests-mock==1.12.1",
+]
+
+[tool.setuptools.packages.find]
+include = ["scraper*"]
+
+[tool.coverage.run]
+data_file = ".artifacts/.coverage"
+
+[tool.coverage.html]
+directory = ".artifacts/htmlcov"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_classes = "Test*"
+python_functions = "test_*"
+cache_dir = ".artifacts/.pytest_cache"
+addopts = [
+    "-v",
+    "--strict-markers",
+    "--cov=scraper",
+    "--cov-report=html:.artifacts/htmlcov",
+    "--cov-report=term-missing",
+]
+

@@ -1,0 +1,8 @@
+{
+    "files.exclude": {
+        "**/.artifacts": true,
+        "**/*.egg-info": true,
+        "venv/": true,
+        "**/__pycache__": true,
+    }
+}
